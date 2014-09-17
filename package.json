@@ -1,0 +1,21 @@
+{
+  "name": "broccoli-pegjs",
+  "description": "PEG.js filter for Broccoli",
+  "version": "0.0.1",
+  "author": "Gordon L. Hempton <ghempton@gmail.com>",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghempton/broccoli-pegjs"
+  },
+  "keywords": [
+    "broccoli-plugin",
+    "pegjs",
+    "javascript"
+  ],
+  "dependencies": {
+    "broccoli-filter": "^0.1.6",
+    "pegjs": "~0.8.0"
+  }
+}
