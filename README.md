@@ -1,6 +1,6 @@
 # broccoli-pegjs
 
-A PEG.js filter for Broccoli.
+A [PEG.js](http://pegjs.org/) filter for [Broccoli](http://broccolijs.com/).
 
 ## Installation
 
@@ -17,14 +17,20 @@ tree = peg(tree, options);
 
 ## Options
 
-### Custom Wrapper
-
-It is possible to wrap the generated parser in any code you want:
+* `wrapper` - Wrap the generated parser in any code you want:
 
 ```
 tree = peg(tree, {
   wrapper: function (src, parser) {
     return 'var Parser = ' + parser + ";\nvar parse = Parser.parse, SyntaxError = Parser.SyntaxError;\nexport {SyntaxError, parse};\nexport default parse;";
   }
+});
+```
+
+* `peg` - Provide an alternative peg instance (for example [pegjs-import](https://github.com/casetext/pegjs-import)):
+
+```
+tree = peg(tree, {
+  peg: require('pegjs-import')
 });
 ```

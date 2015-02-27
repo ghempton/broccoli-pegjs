@@ -1,5 +1,4 @@
-var Filter = require('broccoli-filter'),
-    PEG    = require('pegjs');
+var Filter = require('broccoli-filter');
 
 module.exports = PegFilter;
 PegFilter.prototype = Object.create(Filter.prototype);
@@ -20,6 +19,7 @@ function PegFilter (inputTree, options) {
       }
     };
   }
+  this.peg = options.peg || require('pegjs');
   this.options = options;
 }
 
@@ -27,6 +27,6 @@ PegFilter.prototype.extensions = ['pegjs'];
 PegFilter.prototype.targetExtension = 'js';
 
 PegFilter.prototype.processString = function (string) {
-  var parser = PEG.buildParser(string, this.options);
+  var parser = this.peg.buildParser(string, this.options);
   return this.options.wrapper(string, parser);
 }
