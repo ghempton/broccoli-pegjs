@@ -1,4 +1,5 @@
 var Filter = require('broccoli-filter');
+var fs = require('fs');
 
 module.exports = PegFilter;
 PegFilter.prototype = Object.create(Filter.prototype);
