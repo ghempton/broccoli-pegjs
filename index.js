@@ -27,7 +27,7 @@ function PegFilter (inputTree, options) {
 PegFilter.prototype.extensions = ['pegjs'];
 PegFilter.prototype.targetExtension = 'js';
 
-PegFilter.prototype.processFile = function (string) {
+PegFilter.prototype.processFile = function (srcDir, destDir, relativePath) {
   var self = this
   var inputEncoding = (this.inputEncoding === undefined) ? 'utf8' : this.inputEncoding
   var outputEncoding = (this.outputEncoding === undefined) ? 'utf8' : this.outputEncoding
