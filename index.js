@@ -20,13 +20,25 @@ function PegFilter (inputTree, options) {
     };
   }
   this.peg = options.peg || require('pegjs');
+  delete options.peg;
   this.options = options;
 }
 
 PegFilter.prototype.extensions = ['pegjs'];
 PegFilter.prototype.targetExtension = 'js';
 
-PegFilter.prototype.processString = function (string) {
+PegFilter.prototype.processFile = function (string) {
   var parser = this.peg.buildParser(string, this.options);
   return this.options.wrapper(string, parser);
+  var self = this
+  var inputEncoding = (this.inputEncoding === undefined) ? 'utf8' : this.inputEncoding
+  var outputEncoding = (this.outputEncoding === undefined) ? 'utf8' : this.outputEncoding
+  var parser = this.peg.buildParser(srcDir + '/' + relativePath, this.options);
+  var src = fs.readFileSync(srcDir + '/' + relativePath, { encoding: inputEncoding })
+  var output = this.options.wrapper(src, parser);
+  return Promise.resolve(output)
+    .then(function (outputString) {
+      var outputPath = self.getDestFilePath(relativePath)
+      fs.writeFileSync(destDir + '/' + outputPath, outputString, { encoding: outputEncoding })
+    });
 }
