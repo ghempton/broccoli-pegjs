@@ -1,5 +1,5 @@
 {
-  "name": "@peeriq/broccoli-pegjs",
+  "name": "@peer_iq/broccoli-pegjs",
   "description": "PEG.js filter for Broccoli",
   "version": "1.0.0",
   "author": "Gordon L. Hempton <ghempton@gmail.com>",
@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaurav0/broccoli-pegjs"
+    "url": "git+https://github.com/gaurav0/broccoli-pegjs.git"
   },
   "keywords": [
     "broccoli-plugin",
@@ -18,5 +18,13 @@
     "broccoli-persistent-filter": "^1.4.3",
     "pegjs": "^0.10.0",
     "js-md5": "^0.7.3"
+  },
+  "bugs": {
+    "url": "https://github.com/gaurav0/broccoli-pegjs/issues"
+  },
+  "homepage": "https://github.com/gaurav0/broccoli-pegjs#readme",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
